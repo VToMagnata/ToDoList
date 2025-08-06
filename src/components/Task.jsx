@@ -1,4 +1,4 @@
-export function Task({ name, description, onDelete, onToggleDone, done }) {
+export function Task({ id, name, description, done, Remove, MarcaConcluido }) {
   return (
     <div className="w-[21em] h-[5em] bg-[#3B3B3B] rounded-xl flex justify-between p-[0.5em] mb-[0.7em] lg:w-[52em]">
       <aside>
@@ -16,13 +16,14 @@ export function Task({ name, description, onDelete, onToggleDone, done }) {
       <div className="flex gap-[0.7em]">
         <button
           className="font-bold bg-white text-[#2eccaa] border-2 border-[#2eccaa] p-[0.1em] w-[5em] rounded-[1em] h-[2em]"
-          onClick={onToggleDone}
+          onClick={() => MarcaConcluido(id)}
         >
           Feita
         </button>
+
         <button
           className="font-bold bg-white text-[#cc4b4b] border-2 border-[#cc4b4b] p-[0.1em] w-[5em] rounded-[1em] h-[2em]"
-          onClick={onDelete}
+          onClick={() => Remove(id)}
         >
           Delete
         </button>
