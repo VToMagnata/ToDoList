@@ -2,12 +2,13 @@ import { Task } from "./components/Task";
 import { TaskAdd } from "./components/TaskAdd";
 import { useState, useMemo } from "react";
 import { TaskContext } from "./Context/TaksContext";
+import { useLocalStorage } from "./Hooks/useLocalStorage";
 
 function App() {
-  const [tasks, setTasks] = useState([]);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [filtro, setFiltro] = useState("");
+  const [tasks, setTasks] = useLocalStorage("tasks", []);
 
   const addList = (name, description) => {
     if (name.trim() === "") return;
